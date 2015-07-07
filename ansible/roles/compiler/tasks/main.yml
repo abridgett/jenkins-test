@@ -1,5 +1,5 @@
 ---
--   name: Installing {{item}} for compiling
+-   name: Installing compiler
     sudo: yes
     apt: name={{item}} state=present
     with_items:
