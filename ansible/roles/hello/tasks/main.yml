@@ -1,0 +1,10 @@
+---
+- name: Build hello
+  include: build.yml
+  tags:
+    - build
+
+- name: Deploy hello
+  include: deploy.yml
+  tags:
+    - deploy

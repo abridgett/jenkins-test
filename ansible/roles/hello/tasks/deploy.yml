@@ -1,0 +1,7 @@
+---
+- name: Install hello
+  file: src=/srv/hello dest=/usr/local/bin/hello mode=755
+
+- name: Install helper template
+  template: src=helloworld dest=/usr/local/bin/helloworld mode=755
+
