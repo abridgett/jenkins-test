@@ -7,7 +7,7 @@
     roles:
       - compiler
 
--   name: hello build and deploy
+-   name: Main main role
     hosts: all
     sudo: yes
 
