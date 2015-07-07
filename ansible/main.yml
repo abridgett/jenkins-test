@@ -4,9 +4,8 @@
     sudo: yes
     tags: build
 
-    tasks:
-      - name: install gcc
-        apt: name=gcc state=present
+    roles:
+      - compiler
 
 -   name: hello build and deploy
     hosts: all
