@@ -1,0 +1,6 @@
+[submodule "devops"]
+	path = devops
+	url = git@github.com:opensignal/devops.git
+[submodule "opensignal-ansible"]
+	path = opensignal-ansible
+	url = git@github.com:opensignal/opensignal-ansible.git

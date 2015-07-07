@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Source default setup
+. devops/ci/setup-default
+
+SERVICE="hello"
+# By default $PLAYBOOK will be called with --tags build or --tags deploy
+#PLAYBOOK="ansible/main.yml"
+#BUILD="devops/ci/build-script"
+#DEPLOY="devops/ci/build-script"
+AWS_INSTANCE_TYPE="t2.medium"
+# Spot builds take a while to start (7mins) we want speeeed!
+PACKER_BUILD_FILE="devops/ci/packer-build.json"
+
+main "$@"

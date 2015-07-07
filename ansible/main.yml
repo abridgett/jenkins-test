@@ -1,0 +1,16 @@
+---
+-   name: Prereqs for hello
+    hosts: all
+    sudo: yes
+    tags: build
+
+    tasks:
+      - name: install gcc
+        apt: name=gcc state=present
+
+-   name: hello build and deploy
+    hosts: all
+    sudo: yes
+
+    roles:
+        - hello
