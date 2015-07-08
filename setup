@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+# PLEASE use bash above, we use "set -o pipefail" if possible
+# to find errors easily
 
 # Using devops:ci/setup-default, most work is done for you
 . devops/ci/setup-default
