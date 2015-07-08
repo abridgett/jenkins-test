@@ -6,5 +6,6 @@
 
 - name: Deploy hello
   include: deploy.yml
+  become: yes
   tags:
     - deploy

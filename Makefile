@@ -11,3 +11,6 @@ hello: $(OBJ)
 
 test:
 	./hello
+
+install:
+	cp hello /usr/local/bin/hello
