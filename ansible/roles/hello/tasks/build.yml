@@ -1,5 +1,5 @@
 ---
-- name: build hello
+- name: Build hello
   command: make
   args:
     chdir: /srv/hello

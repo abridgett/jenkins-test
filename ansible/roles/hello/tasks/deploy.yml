@@ -1,8 +1,8 @@
 ---
 - name: Install hello
   command: make install
-    args:
-      chdir: /srv/hello
+  args:
+    chdir: /srv/hello
 
 - name: Install helper template
   template: src=helloworld dest=/usr/local/bin/helloworld mode=755
