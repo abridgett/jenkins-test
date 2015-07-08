@@ -42,16 +42,19 @@ PROJECT="hello"
 # We currently build in several ways (Vagrant, Packer (AMI), Docker)
 
 # Vagrant size
-#MEM=4096
-#CPU=2
+#VAGRANT_MEM=4096
+#VAGRANT_CPU=2
 
 # On AWS, Spot instances are _much_ cheaper/faster 
 # But provising takes a while
 #AWS_INSTANCE_TYPE="m4.large"
-#PACKER_BUILD_FILE="devops/ci/packer-build-spot.json"
+#AWS_INSTANCE_OPTION="spot"
 # So you may want to use non-spot instead
 # t2.* instances have burstable CPUs (and not available as spot instances)
 AWS_INSTANCE_TYPE="t2.medium"
-PACKER_BUILD_FILE="devops/ci/packer-build.json"
+AWS_INSTANCE_OPTION="ondemand"
+
+# Set the AMI root disk space
+# AWS_VOLUME_SIZE=10
 
 main "$@"
