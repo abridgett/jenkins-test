@@ -1,15 +1,57 @@
 #!/bin/sh
 
-# Source default setup
+# Using devops:ci/setup-default, most work is done for you
 . devops/ci/setup-default
 
-SERVICE="hello"
-# By default $PLAYBOOK will be called with --tags build or --tags deploy
+###### NAMING ######
+
+# PROJECT is required
+PROJECT="hello"
+
+# COMPONENT is optional - use it if your project has multiple parts
+#COMPONENT="backend"
+
+# SERVICE is automatically worked out:
+#SERVICE="$PROJECT_$COMPONENT"
+
+
+##### BUILDING #####
+
+# devops:ci/setup-default has various variables that you can override
+# You can also redefine any function that you like here to customise behaviour
+
+# Default behaviour runs $PLAYBOOK with "--tags build" in a container to create
+# an environment independent "build" AMI
+# This is used to create environment specific "deploy" AMIs by calling
+# $PLAYBOOK with "--tags deploy" inside the earlier build AMI
+# Finally we use AutoScaleGroups to deploy the "deploy" AMI
+
 #PLAYBOOK="ansible/main.yml"
-#BUILD="devops/ci/build-script"
-#DEPLOY="devops/ci/build-script"
+
+# BUILD_LOCAL installs ansible, ansible galaxy playbooks
+# and then runs $PLAYBOOK with "--tags build"
+#BUILD_LOCAL="devops/ci/build-script"
+
+# DEPLOY_LOCAL sets up ansible vault if appropriate
+# and then runs $PLAYBOOK with "--tags deploy"
+#DEPLOY_LOCAL="devops/ci/build-script"
+
+
+##### INSTANCE SIZES ######
+
+# We currently build in several ways (Vagrant, Packer (AMI), Docker)
+
+# Vagrant size
+#MEM=4096
+#CPU=2
+
+# On AWS, Spot instances are _much_ cheaper/faster 
+# But provising takes a while
+#AWS_INSTANCE_TYPE="m4.large"
+#PACKER_BUILD_FILE="devops/ci/packer-build-spot.json"
+# So you may want to use non-spot instead
+# t2.* instances have burstable CPUs (and not available as spot instances)
 AWS_INSTANCE_TYPE="t2.medium"
-# Spot builds take a while to start (7mins) we want speeeed!
 PACKER_BUILD_FILE="devops/ci/packer-build.json"
 
 main "$@"
