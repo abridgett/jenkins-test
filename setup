@@ -3,9 +3,6 @@
 # PLEASE use bash above, we use "set -o pipefail" if possible
 # to find errors easily
 
-# Using devops:ci/setup-default, most work is done for you
-. devops/ci/setup-default
-
 ###### NAMING ######
 
 # PROJECT is required
@@ -59,5 +56,8 @@ AWS_INSTANCE_OPTION="ondemand"
 
 # Set the AMI root disk space
 # AWS_VOLUME_SIZE=10
+
+# Using devops:ci/setup-default, most work is done for you
+. devops/ci/setup-default
 
 main "$@"
