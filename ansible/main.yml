@@ -13,3 +13,10 @@
 
     roles:
         - hello
+
+-   name: Nginx
+    sudo: yes
+    tags: build
+
+    roles:
+      - nginx
