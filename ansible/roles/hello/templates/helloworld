@@ -2,4 +2,4 @@
 
 # Magic {{password}}
 
-hello
+hello "{{password}}"

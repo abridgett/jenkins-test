@@ -1,6 +1,7 @@
 /* Hello World program */
 
 #include<stdio.h>
+#include<stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -13,4 +14,5 @@ int main(int argc, char *argv[])
       printf("Hello %s!\n", argv[i]);
     }
   }
+  exit(0);
 }

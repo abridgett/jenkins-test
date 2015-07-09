@@ -9,3 +9,8 @@
   become: yes
   tags:
     - deploy
+
+- name: Test hello
+  include: test.yml
+  tags:
+    - test

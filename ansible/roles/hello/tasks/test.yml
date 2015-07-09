@@ -1,0 +1,9 @@
+---
+- name: Test hello using Makefile
+  command: make test
+  args:
+    chdir: /srv/hello
+
+- name: Test hello directly
+  command: /usr/local/bin/helloworld
+
